@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecossistema Live - Maturidade Executiva, Liderança & Catalyst</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --live-deep: #06192a;
+            --live-glass: rgba(10, 36, 61, 0.70);
+            --live-glass-hover: rgba(15, 45, 75, 0.85);
+            --glass-blur: blur(16px) saturate(180%);
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.15);
+            --kinetic-gradient: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #00e800 100%);
+            --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(0, 232, 0, 0.4);
+            --font-primary: 'Poppins', sans-serif;
+            --font-analytic: 'Merriweather', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+        body {
+            background-color: var(--live-deep);
+            color: #ffffff;
+            font-family: var(--font-primary);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        .bg-texture {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.05; z-index: -2; pointer-events: none;
+        }
+
+        .aurora-glow {
+            position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
+            width: 80vw; height: 80vw;
+            background: radial-gradient(circle, rgba(0,232,0,0.08) 0%, rgba(6,25,42,0) 70%);
+            z-index: -1; pointer-events: none;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        .kinetic-text {
+            background: var(--kinetic-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientMove 5s ease infinite alternate;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .glass-card {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s var(--spring-bounce);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        @media (hover: hover) {
+            .glass-card:hover {
+                transform: translateY(-8px);
+                border-color: var(--border-active);
+                background: var(--live-glass-hover);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            }
+        }
+
+        section { margin-bottom: 5rem; }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--live-accent);
+            padding-left: 1.5rem;
+        }
+
+        .grid { display: grid; gap: 1.5rem; }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.85rem;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-green { background: var(--live-accent-dim); color: var(--live-accent); border: 1px solid rgba(0, 232, 0, 0.3); }
+        .badge-gold { background: rgba(251, 191, 36, 0.1); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+        .badge-blue { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+
+        .price-tag {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .price-label { font-size: 0.65rem; color: #9ca3af; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+        .price-value { font-size: 1.5rem; font-weight: 800; color: #fff; }
+
+        .text-body { color: #d1d5db; font-size: 0.95rem; line-height: 1.6; }
+        .mode-analytic { font-family: var(--font-analytic); color: #e5e7eb; font-style: italic; }
+
+        .catalyst-gradient {
+            background: linear-gradient(135deg, rgba(6, 25, 42, 0.95) 0%, rgba(0, 232, 0, 0.05) 100%);
+            border: 1px solid rgba(0, 232, 0, 0.2);
+        }
+
+        footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--border-subtle); color: #6b7280; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-texture"></div>
+    <div class="aurora-glow"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header style="margin-bottom: 5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Live Logo" style="height: 45px;">
+                <span class="badge badge-green">Ecossistema Live</span>
+            </div>
+            <h1 class="kinetic-text" style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;">
+                Ecossistema de Elite.
+            </h1>
+            <p class="text-body mode-analytic" style="max-width: 650px; font-size: 1.1rem;">
+                Do treinamento de base à alta cúpula executiva. Soluções completas para escala, gestão e equity.
+            </p>
+        </header>
+
+        <!-- Product 1: Imersão -->
+        <section>
+            <div class="section-header">
+                <h2>1. Imersão Maturidade Executiva</h2>
+                <p class="text-body" style="font-size: 0.9rem; opacity: 0.7;">Para empresários que precisam sair do operacional e instalar processos.</p>
+            </div>
+            <div class="grid grid-2">
+                <!-- Standard -->
+                <div class="glass-card">
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.5rem;">
+                            <h3 style="font-size:1.5rem">Standard</h3>
+                            <span class="badge badge-green">Presencial</span>
+                        </div>
+                        <ul style="list-style:none; display:grid; gap:0.8rem;" class="text-body">
+                            <li><i data-lucide="check" size="16" color="var(--live-accent)"></i> 3 Dias de Imersão Intensiva</li>
+                            <li><i data-lucide="check" size="16" color="var(--live-accent)"></i> Acesso ao CEO Scorecard</li>
+                            <li><i data-lucide="check" size="16" color="var(--live-accent)"></i> Networking Qualificado</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <span class="price-label">Investimento</span>
+                        <span class="price-value">R$ 5.000</span>
+                    </div>
+                </div>
+
+                <!-- VIP -->
+                <div class="glass-card" style="border-color: #fbbf24;">
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.5rem;">
+                            <h3 style="font-size:1.5rem; color:#fbbf24">VIP Experience</h3>
+                            <span class="badge badge-gold">Status</span>
+                        </div>
+                        <ul style="list-style:none; display:grid; gap:0.8rem;" class="text-body">
+                            <li><i data-lucide="star" size="16" color="#fbbf24"></i> Assento na 1ª Fila</li>
+                            <li><i data-lucide="star" size="16" color="#fbbf24"></i> Jantar Privado com Ibrahim</li>
+                            <li><i data-lucide="star" size="16" color="#fbbf24"></i> Auditoria Individual</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <span class="price-label">Upgrade</span>
+                        <span class="price-value" style="color:#fbbf24">R$ 15.000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 2: Liderança Antifrágil (Luiz Portal) -->
+        <section>
+            <div class="section-header" style="border-left-color: #60a5fa;">
+                <h2 style="color: #60a5fa;">2. Mentoria Liderança Antifrágil</h2>
+                <p class="text-body" style="font-size: 0.9rem; opacity: 0.7;">Com Luiz Portal. Gestão de pessoas, cultura e resiliência organizacional.</p>
+            </div>
+            
+            <div class="glass-card" style="border-color: rgba(59, 130, 246, 0.3);">
+                <div class="grid grid-2" style="gap: 3rem; align-items: center;">
+                    <div>
+                        <div class="badge badge-blue" style="margin-bottom: 1rem;">Gestão de Capital Humano</div>
+                        <h3 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.5rem;">Crie uma Equipe que<br>Resolve Problemas.</h3>
+                        <p class="text-body mb-6">
+                            Acompanhamento focado em formar lideranças que sustentam o crescimento. Onde a cultura da empresa se torna sua maior vantagem competitiva.
+                        </p>
+                        
+                        <div class="grid grid-2" style="gap: 1rem;">
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="monitor" size="18" class="text-[#60a5fa]"></i>
+                                <span>10 Encontros Online Ao Vivo</span>
+                            </div>
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="user-check" size="18" class="text-[#60a5fa]"></i>
+                                <span>Acompanhamento Personalizado</span>
+                            </div>
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="users" size="18" class="text-[#60a5fa]"></i>
+                                <span>Desenvolvimento de Líderes</span>
+                            </div>
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="shield" size="18" class="text-[#60a5fa]"></i>
+                                <span>Cultura de Responsabilidade</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel" style="padding: 2.5rem; border-radius: 24px; text-align: center; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2);">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <i data-lucide="medal" class="text-[#60a5fa]"></i>
+                            <span class="price-label" style="margin-bottom: 0;">Mentoria com Luiz Portal</span>
+                        </div>
+                        <h4 class="text-4xl font-bold text-white mb-2">R$ 39.997</h4>
+                        <p class="text-[#60a5fa] text-[10px] font-mono uppercase tracking-widest mb-8">Vagas Limitadas por Turma</p>
+                        <button style="width:100%; padding: 1.25rem; background: #3b82f6; color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);">
+                            Garantir Minha Vaga
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 3: Mentoria Catalyst (The High Ticket) -->
+        <section>
+            <div class="section-header" style="border-left-color: #fbbf24;">
+                <h2 style="color: #fbbf24;">3. Mentoria The Catalyst</h2>
+                <p class="text-body" style="font-size: 0.9rem; opacity: 0.7;">O acompanhamento estratégico com Ibrahim Boufleur para Equity e Exit.</p>
+            </div>
+            
+            <div class="glass-card catalyst-gradient" style="padding: 3rem;">
+                <div class="grid grid-2" style="gap: 3rem; align-items: center;">
+                    <div>
+                        <div class="badge badge-gold" style="margin-bottom: 1rem;">Inner Circle</div>
+                        <h3 style="font-size: 2.5rem; line-height: 1; margin-bottom: 1.5rem;">Cadeira no Conselho</h3>
+                        <p class="text-body mb-6">
+                            Mentoria híbrida de 10 meses focada em preparar sua empresa para a escala exponencial ou para uma venda milionária.
+                        </p>
+                        
+                        <div class="grid grid-2" style="gap: 1rem;">
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="package" size="18" class="text-accent"></i>
+                                <span>Chemistry Box Premium</span>
+                            </div>
+                            <div style="display:flex; gap:0.5rem; align-items:center;" class="text-body">
+                                <i data-lucide="zap" size="18" class="text-accent"></i>
+                                <span>Shadow Day Exclusivo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel" style="padding: 2.5rem; border-radius: 24px; text-align: center; background: rgba(0,0,0,0.3);">
+                        <p class="price-label">Ticket Fundador</p>
+                        <h4 class="text-5xl font-bold text-white mb-2">R$ 100.000</h4>
+                        <p class="text-accent text-xs font-mono uppercase tracking-widest mb-8">Processo de Seleção Estrito</p>
+                        <button style="width:100%; padding: 1.25rem; background: var(--live-accent); color: var(--live-deep); border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;">
+                            Aplicar para Mentoria
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© Live Consultoria - Todos os produtos reservados.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.5;">Estratégia: Cléber Donato</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
